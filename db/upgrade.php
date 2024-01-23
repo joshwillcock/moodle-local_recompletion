@@ -1049,7 +1049,7 @@ function xmldb_local_recompletion_upgrade($oldversion) {
         $DB->execute($sql);
         //  Fill backup value table.
         $sql = "INSERT INTO {local_recompletion_ssv} (attemptid, scoid, elementid, value, courseid, timemodified)
-        SELECT a.id as attemptid, t.scoid as scoid, e.id as elementid, t.value as value, s.course, t.timemodified
+        SELECT a.id as attemptid, t.scoid as scoid, e.id as elementid, t.value as value, s.course as courseid, t.timemodified
             FROM {local_recompletion_sst} t
             JOIN {scorm_element} e ON e.element = t.element
             LEFT JOIN {scorm} s ON s.id = t.scormid
